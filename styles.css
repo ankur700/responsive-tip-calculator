@@ -150,6 +150,7 @@ input {
   color: var(--dark-cyan);
 }
 
+.btn-group .active,
 .tip-btn:focus {
   background: var(--strong-cyan);
   color: var(--dark-cyan);

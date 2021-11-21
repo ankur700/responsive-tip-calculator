@@ -7,12 +7,15 @@ let tipPerPerson = 0;
 let totalPerPerson = 0;
 let billAmount = 0;
 let peopleCount = 0;
+let tips;
 const x = document.getElementById("tip-amount");
 const y = document.getElementById("total");
 const reset = document.getElementById("reset");
 for (let radio of radios) {
   radio.addEventListener("click", function () {
     billAmount = bill.value;
+    tips = this;
+    // console.log(tips);
     if (billAmount === "") {
       bill.classList.add("error");
       document.getElementById("msg").innerHTML = "Please fill bill amount";
@@ -22,6 +25,7 @@ for (let radio of radios) {
     } else {
       bill.classList.remove("error");
       document.getElementById("msg").innerHTML = "";
+      this.classList.add('active');
       tipPercentage = this.value.slice(0, -1);
     }
   });
@@ -53,6 +57,10 @@ people.addEventListener("keyup", function () {
 reset.addEventListener("click", function () {
   bill.value = "";
   people.value = "";
-  x.innerHTML = "0";
-  y.innerHTML = "0";
+  if (tips.classList.contains('active')) {
+    tips.classList.remove('active');
+  }
+  // tips.classList.remove('active');
+  x.innerHTML = "0.00";
+  y.innerHTML = "0.00";
 });
