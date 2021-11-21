@@ -1,0 +1,243 @@
+/** fonts loading **/
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+/** set variables **/
+
+:root {
+  --strong-cyan: hsl(172, 67%, 45%);
+  --dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --dark-gray-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --light-gray-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0 0% 100%);
+  --base-font-size: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+}
+
+/** custom class names **/
+
+.grid {
+  display: grid;
+}
+
+.grid-column {
+  grid-column: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+.main {
+  background: var(--light-grayish-cyan);
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: var(--dark-grayish-cyan);
+}
+.card {
+  background: var(--white);
+  grid-template-rows: repeat(2 max-content);
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 1rem;
+  border-radius: 15px;
+  max-width: 900px;
+}
+
+.left {
+  gap: 2rem;
+  padding: 1rem;
+}
+.left label {
+  color: var(--dark-cyan);
+  margin-bottom: 10px;
+}
+
+input {
+  font-size: var(--base-font-size);
+  width: 100%;
+  padding: 5px 10px;
+  font-family: "Space Mono", monospace;
+}
+
+.left input[type="text"] {
+  border: 0;
+  background: var(--light-gray-cyan);
+  height: 40px;
+  border-radius: 10px;
+}
+.left input[type="text"]:focus {
+  outline: 2px solid var(--strong-cyan);
+}
+
+.left .container {
+  justify-content: space-between;
+}
+
+.left .error {
+  outline: 2px solid red !important;
+}
+
+.error-message {
+  color: red;
+  font-family: "Space Mono", monospace;
+}
+#input_container {
+  position: relative;
+  direction: rtl;
+  display: flex;
+  justify-content: space-between;
+  background: var(--light-gray-cyan);
+  border-radius: 10px;
+}
+
+#input_img {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+}
+
+.dark-text {
+  color: var(--dark-cyan);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.btn-group {
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.tip-btn {
+  background: var(--dark-cyan);
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  color: var(--light-gray-cyan);
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+}
+
+.tip-btn:hover {
+  background: var(--light-grayish-cyan);
+  color: var(--dark-cyan);
+}
+
+.tip-btn:focus {
+  background: var(--strong-cyan);
+  color: var(--dark-cyan);
+}
+
+.custom {
+  color: var(--dark-grayish-cyan) !important;
+  font-weight: 700;
+  padding: 15px;
+  height: 55px !important;
+  text-align: center;
+  font-family: "Space Mono", monospace;
+}
+
+.right {
+  background: var(--dark-cyan);
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+.inner {
+  padding: 2rem 1rem;
+  gap: 1.5rem;
+}
+.row {
+  justify-content: space-between;
+}
+
+.right .reset-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: hsl(183, 100%, 25%);
+  opacity: 0.7;
+  /* filter: blur(2px); */
+  border-radius: 5px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: monospace;
+  text-transform: uppercase;
+  color: var(--dark-cyan);
+  cursor: pointer;
+}
+
+.right .active {
+  background: var(--strong-cyan);
+  opacity: 1;
+}
+.right .reset-btn:hover {
+  background: var(--light-grayish-cyan);
+  opacity: 1;
+}
+
+.text .big {
+  color: var(--white);
+}
+
+.text .small {
+  color: var(--dark-gray-cyan);
+}
+
+.right .number {
+  color: var(--strong-cyan);
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: var(--base-font-size);
+}
+
+@media only screen and (min-width: 768px) {
+  .main {
+    padding: 5rem 12rem;
+    height: 100vh;
+    gap: 3rem;
+  }
+  .card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .btn-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .right {
+    justify-content: space-between;
+    padding: 2rem;
+  }
+}

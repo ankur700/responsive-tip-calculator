@@ -1,2 +1,2 @@
 # responsive-tip-calculator
-Created with CodeSandbox
+ Responsive javascript tip calculator app with mobile first design.
