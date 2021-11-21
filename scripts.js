@@ -15,6 +15,8 @@ const reset = document.getElementById("reset");
 let btnClicked = false;
 
 for (let radio of radios) {
+  radio.classList.add("inactive");
+
   radio.addEventListener("click", function () {
     billAmount = bill.value;
     tips = this;
@@ -29,7 +31,7 @@ for (let radio of radios) {
     } else {
       bill.classList.remove("error");
       document.getElementById("msg").innerHTML = "";
-      this.classList.add("active");
+      this.classList.replace("inactive", "active");
       tipPercentage = this.value.slice(0, -1);
     }
   });
