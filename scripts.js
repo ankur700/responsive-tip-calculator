@@ -10,12 +10,16 @@ let peopleCount = 0;
 let tips;
 const x = document.getElementById("tip-amount");
 const y = document.getElementById("total");
+const custom = document.getElementById("custom-tip");
 const reset = document.getElementById("reset");
+let btnClicked = false;
+
 for (let radio of radios) {
   radio.addEventListener("click", function () {
     billAmount = bill.value;
     tips = this;
-    // console.log(tips);
+    btnClicked = true;
+
     if (billAmount === "") {
       bill.classList.add("error");
       document.getElementById("msg").innerHTML = "Please fill bill amount";
@@ -25,15 +29,25 @@ for (let radio of radios) {
     } else {
       bill.classList.remove("error");
       document.getElementById("msg").innerHTML = "";
-      this.classList.add('active');
+      this.classList.add("active");
       tipPercentage = this.value.slice(0, -1);
     }
   });
 }
 
+custom.addEventListener("keyup", function () {
+  tipPercentage = custom.value;
+  for (let radio of radios) {
+    if (radio.classList.contains("active")) {
+      radio.classList.remove("active");
+    }
+  }
+});
+
 people.addEventListener("keyup", function () {
   billAmount = bill.value;
   peopleCount = this.value;
+
   if (peopleCount === "0") {
     people.classList.add("error");
     document.getElementById("people-msg").innerHTML = "Can't be zero";
@@ -57,10 +71,12 @@ people.addEventListener("keyup", function () {
 reset.addEventListener("click", function () {
   bill.value = "";
   people.value = "";
-  if (tips.classList.contains('active')) {
-    tips.classList.remove('active');
+  if (btnClicked === true) {
+    if (tips.classList.contains("active")) {
+      tips.classList.remove("active");
+    }
   }
-  // tips.classList.remove('active');
+  custom.value = "";
   x.innerHTML = "0.00";
   y.innerHTML = "0.00";
 });
